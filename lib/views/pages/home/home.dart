@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         )
       ),
       new CustomNavigationBarItem(
-        icon: new Icon(Icons.outbox_outlined),
+        icon: new Icon(Icons.outbond_outlined),
         title: new Text(
           'Send',
           style: new TextStyle(
@@ -69,20 +69,19 @@ class _HomePageState extends State<HomePage> {
     return new Scaffold(
       backgroundColor: Colors.white,
       appBar: new AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         elevation: 0,
-        centerTitle: true,
         title: new Text(
-          _appBarTitle(),
+          'Olá, Paulo Victor',
           style: new TextStyle(
-            color: primaryColor,
+            color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold
           ),
         ),
         actions: [
           new Padding(
-            padding: const EdgeInsets.only(right: 15),
+            padding: const EdgeInsets.only(right: 16),
             child: new InkWell(
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
@@ -90,7 +89,21 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: new Icon(
                 Icons.notifications_none_rounded,
-                color: primaryColor,
+                color: Colors.white,
+                size: 26,
+              ),
+            ),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: new InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              onTap: () {},
+              child: new Icon(
+                Icons.settings_rounded,
+                color: Colors.white,
                 size: 26,
               ),
             ),
@@ -108,19 +121,19 @@ class _HomePageState extends State<HomePage> {
           new Container(color: Colors.green),
         ],
       ),
-      bottomNavigationBar: new Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: new CustomNavigationBar(
-          backgroundColor: Colors.white,
-          borderRadius: Radius.circular(15),
-          selectedColor: primaryColor,
-          unSelectedColor: Colors.grey,
-          currentIndex: _tabIndex,
-          onTap: (index) => onNavTap(index),
-          items: tabItem(),
-          isFloating: true,
-        ),
-      ),
+      // bottomNavigationBar: new Padding(
+      //   padding: const EdgeInsets.only(bottom: 12),
+      //   child: new CustomNavigationBar(
+      //     backgroundColor: Colors.white,
+      //     borderRadius: Radius.circular(15),
+      //     selectedColor: primaryColor,
+      //     unSelectedColor: Colors.grey,
+      //     currentIndex: _tabIndex,
+      //     onTap: (index) => onNavTap(index),
+      //     items: tabItem(),
+      //     isFloating: true,
+      //   ),
+      // ),
     );
   }
 

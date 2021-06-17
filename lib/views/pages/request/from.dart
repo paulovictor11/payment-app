@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:payment_app/views/components/buttons/ws_button.dart';
 import 'package:payment_app/views/components/dropdowns/ws_dropdown.dart';
 import 'package:payment_app/views/components/inputs/ws_currency_input.dart';
-import 'package:payment_app/views/pages/sucess/success.dart';
+import 'package:payment_app/views/pages/success/success.dart';
 
 class RequestFromPage extends StatefulWidget {
   const RequestFromPage({ Key? key }) : super(key: key);
