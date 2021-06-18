@@ -23,7 +23,7 @@ class _TransactionPageState extends State<TransactionPage> {
         elevation: 0,
         centerTitle: true,
         title: new Text(
-          'Transactions',
+          'Transferência',
           style: new TextStyle(
             color: primaryColor,
             fontSize: 18,

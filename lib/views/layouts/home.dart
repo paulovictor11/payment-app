@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_app/views/components/cards/home_card.dart';
 import 'package:payment_app/views/components/cards/home_outline_card.dart';
-import 'package:payment_app/views/components/tiles/ws_transations_tile.dart';
+import 'package:payment_app/views/layouts/request.dart';
+import 'package:payment_app/views/pages/request/from.dart';
 import 'package:payment_app/views/pages/transaction/transaction.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -41,7 +43,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           ),
           new Spacer(),
           new Text(
-            'Available Balance',
+            'Saldo disponível',
             style: new TextStyle(
               color: Colors.white,
               fontSize: 15,
@@ -50,7 +52,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           ),
           new SizedBox(height: 7),
           new Text(
-            '\$ 2,219.85',
+            'R\$ 2,219.85',
             style: new TextStyle(
               color: Colors.white,
               fontSize: 32,
@@ -58,27 +60,6 @@ class _HomeLayoutState extends State<HomeLayout> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _titleTile() {
-    return new ListTile(
-      onTap: () => Navigator.of(context).push(
-        new MaterialPageRoute(builder: (_) => new TransactionPage())
-      ),
-      title: new Text(
-        'Transactions',
-        style: new TextStyle(
-          color: primaryColor,
-          fontSize: 18,
-          fontWeight: FontWeight.w700
-        ),
-      ),
-      trailing: new Icon(
-        Icons.arrow_forward_rounded,
-        color: primaryColor,
-        size: 26,
       ),
     );
   }
@@ -96,7 +77,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           new SizedBox(height: 15),
           new Center(
             child: new Text(
-              'Estimated total of all currencies',
+              'Total estimado de todas as moedas',
               style: new TextStyle(
                 color: Colors.grey,
                 fontSize: 14,
@@ -104,10 +85,26 @@ class _HomeLayoutState extends State<HomeLayout> {
               ),
             ),
           ),
-          new Spacer(),
+          new SizedBox(height: 15),
+          new Divider(
+            height: 1,
+            thickness: 3,
+            color: primaryColor,
+          ),
+          new SizedBox(height: 15),
+          new Text(
+            'Como podemos te ajudar?',
+            style: new TextStyle(
+              color: Colors.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w700
+            ),
+          ),
+          new SizedBox(height: 20),
           new Container(
-            height: 260,
+            height: 220,
             child: new ListView(
+              physics: new BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               children: [
                 new HomeCard(
@@ -125,18 +122,22 @@ class _HomeLayoutState extends State<HomeLayout> {
                 new HomeCard(
                   icon: Icons.arrow_right_alt_rounded,
                   label: 'Fazer Transferência',
-                  onTap: () {}
+                  onTap: () => Navigator.of(context).push(
+                    new CupertinoPageRoute(builder: (_) => new TransactionPage())
+                  )
                 ),
                 new SizedBox(width: 10),
                 new HomeCard(
                   icon: Icons.arrow_upward_rounded,
                   label: 'Fazer Depósito',
-                  onTap: () {}
+                  onTap: () => Navigator.of(context).push(
+                    new CupertinoPageRoute(builder: (_) => new RequestLayout())
+                  )
                 ),
               ],
             ),
           ),
-          new SizedBox(height: 15),
+          new Spacer(),
           new Divider(
             height: 1,
             thickness: 3,
@@ -144,8 +145,9 @@ class _HomeLayoutState extends State<HomeLayout> {
           ),
           new SizedBox(height: 15),
           new Container(
-            height: 120,
+            height: 80,
             child: new ListView(
+              physics: new BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               children: [
                 new HomeOutlineCard(
@@ -157,60 +159,6 @@ class _HomeLayoutState extends State<HomeLayout> {
               ],
             ),
           ),
-          // new Expanded(
-          //   child: new ListView(
-          //     children: [
-          //       new Padding(
-          //         padding: const EdgeInsets.only(left: 20),
-          //         child: new Text(
-          //           '25/02/2021',
-          //           style: new TextStyle(
-          //             color: Colors.grey,
-          //             fontSize: 13,
-          //             fontWeight: FontWeight.bold
-          //           ),
-          //         ),
-          //       ),
-          //       new SizedBox(height: 5),
-          //       new WsTransactionsTile(
-          //         icon: Icons.person,
-          //         title: 'Amenda Lewis',
-          //         subtitle: 'Payment received',
-          //         currency: '57.01',
-          //         onTap: () {}
-          //       ),
-          //       new WsTransactionsTile(
-          //         icon: Icons.person,
-          //         title: 'Jose Young',
-          //         subtitle: 'Payment sended',
-          //         currency: '19.63',
-          //         isNegative: true,
-          //         onTap: () {}
-          //       ),
-          //       new WsTransactionsTile(
-          //         icon: Icons.person,
-          //         title: 'Janice Brewer',
-          //         subtitle: 'Payment received',
-          //         currency: '114.00',
-          //         onTap: () {}
-          //       ),
-          //       new WsTransactionsTile(
-          //         icon: Icons.person,
-          //         title: 'Phoebe Buffay',
-          //         subtitle: 'Payment received',
-          //         currency: '70.16',
-          //         onTap: () {}
-          //       ),
-          //       new WsTransactionsTile(
-          //         icon: Icons.person,
-          //         title: 'Monica Geller',
-          //         subtitle: 'Payment received',
-          //         currency: '44.50',
-          //         onTap: () {}
-          //       ),
-          //     ],
-          //   ),
-          // )
         ],
       ),
     );

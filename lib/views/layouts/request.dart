@@ -24,114 +24,150 @@ class _RequestLayoutState extends State<RequestLayout> {
   
   @override
   Widget build(BuildContext context) {
-    return new Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          new WsInput(
-            text: 'Name, Email or Mobile number',
-            keyboardType: TextInputType.text,
-            controller: _search,
-            icon: Icons.search_rounded
+    return new Scaffold(
+      backgroundColor: Colors.white,
+      appBar: new AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: new Text(
+          'Depósito',
+          style: new TextStyle(
+            color: primaryColor,
+            fontSize: 18,
+            fontWeight: FontWeight.bold
           ),
-          new SizedBox(height: 25),
-          new Text(
-            'Recent',
-            style: new TextStyle(
-              color: primaryColor,
-              fontSize: 17,
-              fontWeight: FontWeight.w700
-            ),
-          ),
-          new SizedBox(height: 15),
-          new Container(
-            height: 40,
-            child: new ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: _recentTile(),
-                ),
-              ],
-            ),
-          ),
-          new SizedBox(height: 25),
-          new Text(
-            'Contacts',
-            style: new TextStyle(
-              color: primaryColor,
-              fontSize: 17,
-              fontWeight: FontWeight.w700
-            ),
-          ),
-          new SizedBox(height: 15),
-          new Expanded(
-            child: new ListView(
-              children: [
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Amenda Lewis',
-                  onTap: () => Navigator.of(context).push(
-                    new MaterialPageRoute(builder: (_) => new RequestFromPage())
-                  )
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Jose Young',
-                  onTap: () {}
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Janice Brewer',
-                  onTap: () {}
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Phoebe Buffay',
-                  onTap: () {}
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Monica Geller',
-                  onTap: () {}
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Rachel Green',
-                  onTap: () {}
-                ),
-                new WsContactTile(
-                  icon: Icons.person,
-                  title: 'Kamila Fros',
-                  onTap: () {}
-                ),
-              ],
+        ),
+        leading: new BackButton(color: primaryColor),
+        actions: [
+          new Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: new InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              onTap: () {},
+              child: new Icon(
+                Icons.filter_list_rounded,
+                color: primaryColor,
+                size: 26,
+              ),
             ),
           )
         ],
+      ),
+      body: new SingleChildScrollView(
+        child: new Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              new WsInput(
+                text: 'Nome, Email ou Número de telefone',
+                keyboardType: TextInputType.text,
+                controller: _search,
+                icon: Icons.search_rounded
+              ),
+              new SizedBox(height: 25),
+              new Text(
+                'Recentes',
+                style: new TextStyle(
+                  color: primaryColor,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700
+                ),
+              ),
+              new SizedBox(height: 15),
+              new Container(
+                height: 40,
+                child: new ListView(
+                  physics: new BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: _recentTile(),
+                    ),
+                  ],
+                ),
+              ),
+              new SizedBox(height: 25),
+              new Text(
+                'Contacts',
+                style: new TextStyle(
+                  color: primaryColor,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700
+                ),
+              ),
+              new SizedBox(height: 15),
+              new Expanded(
+                child: new ListView(
+                  children: [
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Amenda Lewis',
+                      onTap: () => Navigator.of(context).push(
+                        new MaterialPageRoute(builder: (_) => new RequestFromPage())
+                      )
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Jose Young',
+                      onTap: () {}
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Janice Brewer',
+                      onTap: () {}
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Phoebe Buffay',
+                      onTap: () {}
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Monica Geller',
+                      onTap: () {}
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Rachel Green',
+                      onTap: () {}
+                    ),
+                    new WsContactTile(
+                      icon: Icons.person,
+                      title: 'Kamila Fros',
+                      onTap: () {}
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

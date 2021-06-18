@@ -20,7 +20,7 @@ class HomeOutlineCard extends StatelessWidget {
     return new GestureDetector(
       onTap: onTap,
       child: new Container(
-        width: 120,
+        width: 80,
         padding: const EdgeInsets.all(8),
         decoration: new BoxDecoration(
           border: Border.all(

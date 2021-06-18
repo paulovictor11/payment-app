@@ -21,7 +21,7 @@ class HomeCard extends StatelessWidget {
     return new GestureDetector(
       onTap: onTap,
       child: new Container(
-        width: 180,
+        width: 140,
         padding: const EdgeInsets.all(16),
         decoration: new BoxDecoration(
           color: primaryColor,
